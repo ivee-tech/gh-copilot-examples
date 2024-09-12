@@ -1,0 +1,52 @@
+# planets
+
+using ThreeJS, generate the planets with correct textures, rotation, and orbit controls
+
+can you suggest correct textures for the planets? - public code
+
+add planets rotation and corresponding meshes
+
+can you also add the planet orbits?
+
+can you also add different rotations?
+
+can you make it so as the planets have different rotation timing?
+
+use the planet images in the assets folder to configure textures
+
+
+# translate
+
+how to do base64 encoding / decoding in bash?
+
+how to translate selected code to PowerShell?
+
+# tests in .NET
+
+@terminal generate a dotnet mvc app called MyWeather
+
+@terminal restore, build and run the app
+
+@workspace /tests 
+OR
+@workspace /tests Generate unit tests using MSTest / XUnit / NUnit framework for #file:HomeController.cs 
+
+add XUnit package, restore, and run the tests
+
+
+
+# infra
+
+generate IaaC code for an Azure Storage Account using az CLI, Bicep and Terraform
+
+
+# planets containerisation
+
+generate a Docker file for the planets web app, using nginx:alpine base image
+
+generate docker commands to build image and run locally
+
+
+generate docker commands to tag and push the planets-web-app image to Docker Hub, using daradu account
+
+generate a kubernetes deployment manifest including a load balancer service
