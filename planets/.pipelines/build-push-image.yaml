@@ -23,7 +23,7 @@ stages:
         img="planets-web-app:$TAG"
         az login --identity
         sudo az acr login --name $ACRNAME
-        cd $(Pipeline.Workspace)/planets
+        cd $(Pipeline.Workspace)/s/planets
         sudo docker build -t $img -f $DOCKERFILEPATH .
 
         sudo docker tag ${img} $REGISTRY/$RNS/$img
