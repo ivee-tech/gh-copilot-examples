@@ -13,5 +13,5 @@ stages:
     steps:
     - script: |
         cd $(Pipeline.Workspace)/s/planets/.k8s
-        kubectl apply -f ./planets-web-app-dep.yaml -f ./planets-web-app-svc.yaml-n $NS
+        kubectl apply -f ./planets-web-app-dep.yaml -f ./planets-web-app-svc.yaml -n $NS
       displayName: 'Deploy manifests'
