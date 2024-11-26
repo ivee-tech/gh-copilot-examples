@@ -2,7 +2,11 @@
 echo -n "Hello, World!" | base64
 
 # Decoding a string
+echo -n "SGVsbG8sIFdvcmxkIQ==" | base64 --decode
+
 [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String("SGVsbG8sIFdvcmxkIQ=="))
+
+
 
 # Encoding a file
 base64 input.txt > encoded.txt

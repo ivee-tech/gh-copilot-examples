@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThreeJS Game</title>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Setup scene, camera, and renderer
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Add lighting
+        const light = new THREE.DirectionalLight(0xffffff, 1);
+        light.position.set(1, 1, 1).normalize();
+        scene.add(light);
+
+        // Create shapes
+        const geometryCube = new THREE.BoxGeometry();
+        const materialCube = new THREE.MeshPhongMaterial({ color: 0x00ff00 });
+        const cube = new THREE.Mesh(geometryCube, materialCube);
+        scene.add(cube);
+
+        const geometrySphere = new THREE.SphereGeometry(0.5, 32, 32);
+        const materialSphere = new THREE.MeshPhongMaterial({ color: 0xff0000 });
+        const sphere = new THREE.Mesh(geometrySphere, materialSphere);
+        sphere.position.x = 2;
+        scene.add(sphere);
+
+        const geometryCone = new THREE.ConeGeometry(0.5, 1, 32);
+        const materialCone = new THREE.MeshPhongMaterial({ color: 0x0000ff });
+        const cone = new THREE.Mesh(geometryCone, materialCone);
+        cone.position.x = -2;
+        scene.add(cone);
+
+        camera.position.z = 5;
+
+        // Keyboard interaction
+        const keyState = {};
+        window.addEventListener('keydown', (event) => {
+            keyState[event.key] = true;
+        });
+        window.addEventListener('keyup', (event) => {
+            keyState[event.key] = false;
+        });
+
+        function update() {
+            if (keyState['ArrowUp']) cube.position.y += 0.1;
+            if (keyState['ArrowDown']) cube.position.y -= 0.1;
+            if (keyState['ArrowLeft']) cube.position.x -= 0.1;
+            if (keyState['ArrowRight']) cube.position.x += 0.1;
+
+            if (keyState['w']) sphere.position.y += 0.1;
+            if (keyState['s']) sphere.position.y -= 0.1;
+            if (keyState['a']) sphere.position.x -= 0.1;
+            if (keyState['d']) sphere.position.x += 0.1;
+
+            if (keyState['i']) cone.position.y += 0.1;
+            if (keyState['k']) cone.position.y -= 0.1;
+            if (keyState['j']) cone.position.x -= 0.1;
+            if (keyState['l']) cone.position.x += 0.1;
+        }
+
+        // Animation loop
+        function animate() {
+            requestAnimationFrame(animate);
+            update();
+            renderer.render(scene, camera);
+        }
+        animate();
+    </script>
+</body>
+</html>

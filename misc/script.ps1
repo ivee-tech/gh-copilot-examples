@@ -4,6 +4,11 @@
 # Decoding a string
 [Text.Encoding]::UTF8.GetString([Convert]::FromBase64String("SGVsbG8sIFdvcmxkIQ=="))
 
+$text = "The price is 123 dollars. The date is 12/25/2021. My credit card number is 1234-5678-1234-5678."
+$pattern = '\b\d+\b|\b\d{1,2}/\d{1,2}/\d{2,4}\b|\b\d{4}[- ]?\d{4}[- ]?\d{4}[- ]?\d{4}\b'
+$matches = [regex]::Matches($text, $pattern) | ForEach-Object { $_.Value }
+$matches
+
 # tests in .NET
 
 dotnet new mvc -n MyWeather

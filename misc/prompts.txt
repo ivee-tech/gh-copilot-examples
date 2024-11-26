@@ -1,6 +1,6 @@
 # planets
 
-using ThreeJS, generate the planets with correct textures, rotation, and orbit controls
+using ThreeJS, generate code to show our solar system planets with correct textures, rotation, and orbit controls
 
 can you suggest correct textures for the planets? - public code
 

@@ -15,7 +15,7 @@ az storage account create --name $STORAGE_ACCOUNT_NAME --resource-group $RESOURC
 
 
 # Bicep
-az deployment group create --resource-group rg-auea-dev-gh-ws --template-file main.bicep
+az deployment group create --resource-group rg-auea-dev-gh-ws --template-file stg.bicep
 
 # Terraform
 terraform init
